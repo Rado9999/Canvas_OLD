@@ -1,0 +1,18 @@
+#Soubor bluej.pkg prevedeny do ASCII
+#Fri May 27 17:09:14 CEST 2022
+package.editor.height=292
+package.editor.width=207
+package.editor.x=320
+package.editor.y=0
+package.numDependencies=0
+package.numTargets=1
+package.showExtends=true
+package.showUses=true
+project.charset=UTF-8
+target1.height=50
+target1.name=IO
+target1.showInterface=false
+target1.type=ClassTarget
+target1.width=80
+target1.x=60
+target1.y=100
