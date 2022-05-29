@@ -35,7 +35,7 @@ public Square(Pozice pozice, Rozmer rozmer, Barva barva)
      */
     public Square(Oblast oblast, Barva barva)
     {
-        this( oblast.x, oblast.y, oblast.sirka, oblast.vyska, barva );
+        this( oblast.x, oblast.y, Math.min(oblast.sirka, oblast.vyska), barva );
     }
 
 
@@ -48,22 +48,9 @@ public Square(Pozice pozice, Rozmer rozmer, Barva barva)
      * @param vyska  Vyska vytvarene instance,  vyska >= 0
      * @param barva   Barva vytvarene instance
      */
-    public Square(int x, int y, int sirka, int vyska, Barva barva)
+    public Square(int x, int y, int strana, int vyska, Barva barva)
     {
-        //Test platnosti parametru
-        if( (x<0) || (y<0) || (sirka<0) || (vyska<0) ) {
-            throw new IllegalArgumentException(
-                "\nParametry nemaji povolene hodnoty: x="
-                + x + ", y=" + y + ", sirka=" + sirka + ", vyska=" + vyska );
-        }
-
-        //Parametry akceptovany --> muzeme tvorit
-        this.nazev = this.getClass().getSimpleName() + "_" + ++pocet;
-        this.xPos  = x;
-        this.yPos  = y;
-        this.sirka = sirka;
-        this.vyska = vyska;
-        this.barva = barva;
+        super(x, y, strana, strana, barva);
     }
 
   /**
@@ -71,11 +58,18 @@ public Square(Pozice pozice, Rozmer rozmer, Barva barva)
    * @param width
    * @param height
    */
-//@Override
-//public void setRozmer(int width, int height){
-//  
-//}
-public void  setRozmer(int width){
+@Override
+public void setRozmer(int width, int height){
+try{
+   if (height != width) throw new IllegalArgumentException(
+                "\nSirka a vyska nie su zhodne!");
+   }
+catch(IllegalArgumentException ex) {
+   public void setRozmer(int Math.min(width, height);
+   }
+}
   
+public void  setRozmer(int strana){
+  super(strana, strana);
 }
 }
